@@ -12,5 +12,5 @@ nailhead_diameter = 7;
 nail_shaft_width = 3.2;
 nail_height = 32;
 
-nailbox = true;
-hook = false;
+include_nail = false;
+add_hook = false;
