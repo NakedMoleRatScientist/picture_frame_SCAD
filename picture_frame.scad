@@ -12,9 +12,8 @@ History:
 
 $fa = 1;
 $fs = 0.1;
-
-use <../lib/utility.scad>;
-use <../lib/hooks.scad>;
+use <vendors/UtilitySCAD-R1/utility.scad>;
+use <vendors/UtilitySCAD-R1/hooks.scad>;
 use <nail_box.scad>;
 include <customizer.scad>;
 
