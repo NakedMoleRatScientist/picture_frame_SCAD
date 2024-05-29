@@ -98,7 +98,10 @@ module frame_top_interface()
         }
         translate([0,frame_l - 2,cutoff - 16])
         {
-            circular_hook(nailhead_diameter,frame_w,nail_shaft_width);   
+            if (add_hook == true)
+            {
+                circular_hook(nailhead_diameter,frame_w,nail_shaft_width);   
+            }
         }
 
 
@@ -168,7 +171,10 @@ frame_top_interface()
         {
             translate([0,8.5,0])
             {
-                nail_mold();
+                if (include_nail == true)
+                {
+                    nail_mold();
+                }
             }
         }
     }
