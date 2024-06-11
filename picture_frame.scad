@@ -17,8 +17,8 @@ use <vendors/UtilitySCAD-R1/hooks.scad>;
 use <nail_box.scad>;
 include <customizer.scad>;
 
-picture_w = width + border * 2;
-picture_h = height + border * 2;
+picture_w = width;
+picture_h = height;
 picture_l = length;
 
 m_2 = m * 2;
