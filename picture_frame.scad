@@ -41,7 +41,7 @@ module inside_slot()
     {   
         move_by_margin(m);
         {
-            cube([picture_w + m_2,picture_l + m_2,picture_h + m_2]);
+            cube([width + m_2,length + m_2,height + m_2]);
         }
     }
 }
@@ -49,7 +49,7 @@ module inside_slot()
 //Slot for an acrylic pane.
 module acrylic_slot()
 {
-    y = (frame_border - border) / 2;
+    y = (frame_border) / 2;
     translate([frame_border,y,frame_border])
     {   
         move_by_margin(m);
@@ -62,9 +62,9 @@ module acrylic_slot()
 
 module picture_frame_cutout()
 {
-        translate([frame_border + border,-1,frame_border + border])
+        translate([frame_border,-1,frame_border + border])
         {
-            cube([width,frame_border + border,height]);
+            cube([width,frame_border,height]);
         }
 }
 
@@ -87,7 +87,7 @@ module frame()
 
 module frame_top_interface()
 {
-    cutoff = frame_border + border + height;
+    cutoff = frame_border + height;
     difference()
     {
         children();
@@ -115,7 +115,7 @@ module frame_top_interface()
 module friction_slot(height, slot_m = 0)
 {
     slot_m_2 = slot_m * 2;
-    translate([frame_border,frame_border + border  + m_2,height])
+    translate([frame_border,frame_border  + m_2,height])
     {
         size = [2,frame_border - m_2,2];
         
@@ -147,7 +147,7 @@ module frame_top()
     {
         difference()
         {
-            z_cut = frame_h - border - frame_border;
+            z_cut = frame_h - frame_border;
             hor_cut(frame_w,frame_l,z_cut)
             {
                 frame();   
@@ -181,7 +181,7 @@ frame_top_interface()
 }
 
 //Create the top.
-translate([frame_w,-frame_l - 5,frame_border + border])
+translate([frame_w,-frame_l - 5,frame_border])
 {
     frame_top();
 }
