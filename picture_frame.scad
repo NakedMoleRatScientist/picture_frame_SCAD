@@ -27,7 +27,7 @@ echo("Initial frame dimension");
 frame_w = picture_w + frame_border * 2;
 echo("frame width");
 echo(frame_w);
-frame_l = picture_l + frame_border * 2;
+frame_l = picture_l + frame_border * 2 + border;
 echo("frame length");
 echo(frame_l);
 frame_h = picture_h + frame_border * 2;
@@ -49,7 +49,7 @@ module inside_slot()
 //Slot for an acrylic pane.
 module acrylic_slot()
 {
-    y = (frame_border) / 2;
+    y = 2;
     translate([frame_border,y,frame_border])
     {   
         move_by_margin(m);
@@ -62,9 +62,9 @@ module acrylic_slot()
 
 module picture_frame_cutout()
 {
-        translate([frame_border,-1,frame_border + border])
+        translate([frame_border + border,-1,frame_border + border])
         {
-            cube([width,frame_border,height]);
+            cube([width - border * 2,frame_border + 1,height - border]);
         }
 }
 
@@ -75,7 +75,7 @@ module frame()
         cube([frame_w,frame_l,frame_h]);
         color("red")
         {
-            inside_slot();
+           inside_slot();
         }
         color("blue")
         {
@@ -115,9 +115,9 @@ module frame_top_interface()
 module friction_slot(height, slot_m = 0)
 {
     slot_m_2 = slot_m * 2;
-    translate([frame_border,frame_border  + m_2,height])
+    translate([frame_border,frame_border + border+ m_2,height])
     {
-        size = [2,frame_border - m_2,2];
+        size = [2,frame_border + border - m_2,2];
         
         castellate(picture_w + m_2,size,slot_m);        
     }
