@@ -1,9 +1,7 @@
 // Customizer.scad is where parameters are shared across models. This file is placed into the public domain. Modify to your need.
 
-//width = 200;
-width = 50;
-//height = 158;
-height = 50;
+width = 200;
+height = 158;
 length = 2;
 border = 2;
 
