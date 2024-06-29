@@ -100,7 +100,7 @@ module hor_cut(width,length,height)
 function bevel_radius(length) = length * 2 / 3;
 function bevel_height(r) = r * sqrt(3)/2;
 
-//Bevel at 45 degree slop up, facing, back, then extrude upward by height.
+//Bevel at 45 degree slope up, facing back, then extrude upward by height.
 module bevel_up_back_45(width,length,height)
 {
     r = bevel_radius(length);
@@ -112,6 +112,37 @@ module bevel_up_back_45(width,length,height)
         translate([0,r / 2,z])
         {
             rotate([0,90,0])
+            {
+                triangle_prism(width,r);
+            }
+        }
+        // Cut off to the required height.
+        move_x(-m)
+            move_y(-m)
+                move_z(height)
+                   cube([width + m,length + m,z * 2 - height]);
+    }
+    //If cutting off isn't happening simply add height.
+    if (height >= z)
+    {
+        move_z(z)
+        {
+            cube([width,length,height - z]);
+        }
+    }
+}
+
+module bevel_up_front_45(width,length,height)
+{
+    r = bevel_radius(length);
+    z = bevel_height(r);
+    m = 0.1;
+    m_2 = m * 2;
+    difference()
+    {
+        translate([width,r,z])
+        {
+            rotate([0,90,180])
             {
                 triangle_prism(width,r);
             }
@@ -232,3 +263,5 @@ module castellate(width,size, m = 0)
     }
 
 }
+
+
