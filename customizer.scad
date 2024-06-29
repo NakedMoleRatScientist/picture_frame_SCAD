@@ -6,7 +6,7 @@ length = 2;
 border = 2;
 
 m = 0.3;
-frame_border = 6;
+frame_border = 4;
 
 nailhead_diameter = 7;
 nail_shaft_width = 3.2;
