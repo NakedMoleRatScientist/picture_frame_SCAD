@@ -50,7 +50,7 @@ module inside_slot()
 module acrylic_slot()
 {
     y = 2;
-    translate([frame_border,y,frame_border])
+    translate([frame_border,y - 1,frame_border])
     {   
         move_by_margin(m);
         {
@@ -68,6 +68,15 @@ module picture_frame_cutout()
         }
 }
 
+module reduction()
+{
+    translate([frame_border + border,frame_border + picture_l,frame_border + border])
+    {
+        cube([90,3,picture_h - 5]);
+    }
+
+}
+
 module frame()
 {
     difference()
@@ -82,6 +91,7 @@ module frame()
             acrylic_slot();
         }
         picture_frame_cutout();
+        reduction();
     }
 }
 
@@ -156,7 +166,7 @@ module frame_top()
             shadow_line(h);
             color("blue")
             {
-                friction_slot(h,-0.1);
+                friction_slot(h,-0.05);
             }
         }
     }
@@ -169,7 +179,7 @@ frame_top_interface()
         frame();
         center(nailhead_diameter,frame_w)
         {
-            translate([0,8.5,0])
+            translate([0,frame_border + 1,0])
             {
                 if (include_nail == true)
                 {
