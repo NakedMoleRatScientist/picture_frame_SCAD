@@ -17,9 +17,10 @@ include <customizer.scad>;
 
 r = 1;
 hull_r = r * 2;
-final_w = width + border * 2 - hull_r;
-final_l = height + border * 2 - hull_r;
-
+// The reason why we don't just use width and height is that we can't expect the dimension to be the same when using the corner module with the hull function.
+final_w = width - hull_r;
+final_l = height - hull_r;
+echo(final_l);
 module corner()
 {
     cylinder(1,r,r);
