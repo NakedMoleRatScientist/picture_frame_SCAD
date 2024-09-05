@@ -20,7 +20,6 @@ hull_r = r * 2;
 final_w = width + border * 2 - hull_r;
 final_l = height + border * 2 - hull_r;
 
-echo(length);
 module corner()
 {
     cylinder(1,r,r);
