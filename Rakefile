@@ -3,7 +3,7 @@ require "zip"
 manifest =
 {
     :version => "R1",
-    :project_name => "UtilitySCAD"
+    :project_name => "PictureFrameSCAD"
 }
 directory_name = manifest[:project_name] + "-" + manifest[:version]
 
