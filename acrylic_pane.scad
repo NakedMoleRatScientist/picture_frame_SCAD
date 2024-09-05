@@ -12,7 +12,7 @@ History:
 $fa = 1;
 $fs = 0.1;
 
-use <../lib/utility.scad>;
+use <vendors/UtilitySCAD-R1/utility.scad>;
 include <customizer.scad>;
 
 r = 1;
