@@ -27,13 +27,22 @@ module nail_mold()
 {
     translate([nailhead_r, nailhead_r, 0])
     {
-        move_z(0)
+        difference()
         {
-            cylinder(nail_height,nail_shaft_r,nail_shaft_r);
+            move_z(-1)
+            {
+                cylinder(nail_height + 1,nail_shaft_r,nail_shaft_r);
+
+            }
+            move_z(1)
+            {
+                cylinder(0.2,nail_shaft_r,nail_shaft_r);
+            }
         }
+
         move_z(-1)
         {
-            cylinder(1 + 1,nailhead_r,nailhead_r);
+            cylinder(2,nailhead_r,nailhead_r);
         }
     }
 }
@@ -44,5 +53,6 @@ difference()
     translate([1,1,0])
     {
         nail_mold();
+
     }
 }
