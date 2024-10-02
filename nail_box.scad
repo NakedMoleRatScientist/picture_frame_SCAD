@@ -34,7 +34,7 @@ module nail_mold()
                 cylinder(nail_height + 1,nail_shaft_r,nail_shaft_r);
 
             }
-            move_z(1)
+            move_z(nailhead_height)
             {
                 cylinder(0.2,nail_shaft_r,nail_shaft_r);
             }
@@ -42,7 +42,7 @@ module nail_mold()
 
         move_z(-1)
         {
-            cylinder(2,nailhead_r,nailhead_r);
+            cylinder(nailhead_height + 1,nailhead_r,nailhead_r);
         }
     }
 }
